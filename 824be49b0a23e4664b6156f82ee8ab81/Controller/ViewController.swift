@@ -14,6 +14,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func playButtonTapped(_ sender: Any) {
+        performSegue(withIdentifier: "toMainVC", sender: sender)
+    }
+    
 }
 
