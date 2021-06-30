@@ -15,11 +15,12 @@ class FavoritesVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        favoritesListCV.delegate = self
+        favoritesListCV.dataSource = self
         favoritesListCV.register(FavoritesCVC.nib(), forCellWithReuseIdentifier: FavoritesCVC.identifier)
 
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -29,13 +30,14 @@ class FavoritesVC: UIViewController, UICollectionViewDelegate, UICollectionViewD
         // Pass the selected object to the new view controller.
     }
     */
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 40
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoritesCVC.identifier, for: indexPath) as! FavoritesCVC
-        
+        cell.backgroundColor = .red
         return cell
 
     }

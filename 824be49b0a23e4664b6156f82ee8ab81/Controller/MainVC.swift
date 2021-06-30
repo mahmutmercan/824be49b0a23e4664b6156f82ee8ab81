@@ -13,6 +13,8 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        stationListCV.delegate = self
+        stationListCV.dataSource = self
         stationListCV.register(SpaceStationCVC.nib(), forCellWithReuseIdentifier: SpaceStationCVC.identifier)
         // Do any additional setup after loading the view.
     }
