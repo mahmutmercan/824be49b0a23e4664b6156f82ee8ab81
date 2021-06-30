@@ -13,6 +13,7 @@ class SpaceStationCVC: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        backgroundColor = .cyan
         // Initialization code
     }
 

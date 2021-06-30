@@ -7,15 +7,15 @@
 
 import UIKit
 
-class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class MainVC: UIViewController {
 
     @IBOutlet weak var stationListCV: UICollectionView!
+    var layout =  UICollectionViewFlowLayout()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        stationListCV.delegate = self
-        stationListCV.dataSource = self
-        stationListCV.register(SpaceStationCVC.nib(), forCellWithReuseIdentifier: SpaceStationCVC.identifier)
+        setupCollectionView()
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -29,6 +29,45 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         // Pass the selected object to the new view controller.
     }
     */
+    
+
+
+}
+
+
+extension MainVC {
+    private func setupCollectionView() {
+        
+        
+        stationListCV.backgroundColor = .clear
+        stationListCV.delegate = self
+        stationListCV.dataSource = self
+        stationListCV.isPagingEnabled = true
+        stationListCV.showsHorizontalScrollIndicator = false
+        stationListCV.setCollectionViewLayout(layout, animated: true)
+        stationListCV.register(SpaceStationCVC.nib(), forCellWithReuseIdentifier: SpaceStationCVC.identifier)
+        setupCollectionViewItemSize()
+        stationListCV.layer.borderWidth = 2
+        stationListCV.layer.borderColor = UIColor.black.cgColor
+    }
+    
+    private func setupCollectionViewItemSize() {
+        let screenSize = UIScreen.main.bounds.width / 2
+        let itemW: CGFloat = screenSize
+        let itemH: CGFloat = itemW
+        let minimumLineSpacingValue: CGFloat = itemW / 2
+
+        layout.scrollDirection = UICollectionView.ScrollDirection.horizontal
+        layout.itemSize = CGSize(width: itemW, height: itemH)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: minimumLineSpacingValue, bottom: 0, right: minimumLineSpacingValue)
+        layout.minimumLineSpacing = minimumLineSpacingValue * 2
+    }
+        
+}
+
+
+
+extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }
@@ -38,7 +77,5 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         
         return cell
     }
-    
-
 
 }

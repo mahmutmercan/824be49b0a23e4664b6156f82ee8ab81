@@ -195,12 +195,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e8b-hH-L54">
-                                <rect key="frame" x="24" y="300" width="366" height="366"/>
+                                <rect key="frame" x="0.0" y="300" width="414" height="366"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="366" id="aqV-kp-hLi"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Tyq-SY-IRB">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Tyq-SY-IRB">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -294,12 +294,12 @@
                             <constraint firstItem="eU6-m5-Gsu" firstAttribute="top" secondItem="Qy9-V0-pkf" secondAttribute="bottom" constant="64" id="cAE-dg-Hhn"/>
                             <constraint firstItem="Wef-eP-B1n" firstAttribute="bottom" secondItem="6a3-X6-aDr" secondAttribute="bottom" constant="64" id="ccG-Jg-RO1"/>
                             <constraint firstItem="e8b-hH-L54" firstAttribute="centerX" secondItem="kgg-ew-ucK" secondAttribute="centerX" id="eBj-Cc-w4G"/>
-                            <constraint firstItem="Wef-eP-B1n" firstAttribute="trailing" secondItem="e8b-hH-L54" secondAttribute="trailing" constant="24" id="kfR-YS-TrN"/>
+                            <constraint firstItem="Wef-eP-B1n" firstAttribute="trailing" secondItem="e8b-hH-L54" secondAttribute="trailing" id="kfR-YS-TrN"/>
                             <constraint firstItem="4Wy-ba-lSE" firstAttribute="leading" secondItem="vs5-jw-F2W" secondAttribute="trailing" constant="8" id="sKi-pj-q99"/>
                             <constraint firstItem="Qy9-V0-pkf" firstAttribute="top" secondItem="CRr-wd-i23" secondAttribute="bottom" constant="40" id="smy-mB-pvk"/>
                             <constraint firstItem="e8b-hH-L54" firstAttribute="top" secondItem="eU6-m5-Gsu" secondAttribute="bottom" constant="40" id="uDG-oR-7QL"/>
                             <constraint firstItem="eU6-m5-Gsu" firstAttribute="leading" secondItem="Wef-eP-B1n" secondAttribute="leading" constant="24" id="un1-Wo-6hZ"/>
-                            <constraint firstItem="e8b-hH-L54" firstAttribute="leading" secondItem="Wef-eP-B1n" secondAttribute="leading" constant="24" id="v85-zp-RiU"/>
+                            <constraint firstItem="e8b-hH-L54" firstAttribute="leading" secondItem="Wef-eP-B1n" secondAttribute="leading" id="v85-zp-RiU"/>
                             <constraint firstItem="Wef-eP-B1n" firstAttribute="trailing" secondItem="eU6-m5-Gsu" secondAttribute="trailing" constant="24" id="xCa-WQ-Xcf"/>
                         </constraints>
                     </view>
