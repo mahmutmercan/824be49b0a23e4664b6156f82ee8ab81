@@ -34,7 +34,7 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="j7M-1P-1Rg">
                                 <rect key="frame" x="22" y="684" width="370" height="31"/>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kapasite" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4P-4B-sBZ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kapasite" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4P-4B-sBZ">
                                 <rect key="frame" x="24" y="639.5" width="366" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -43,7 +43,7 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="mrn-Jh-NWi">
                                 <rect key="frame" x="22" y="545.5" width="370" height="31"/>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hız" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCx-Pb-WyU">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hız" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCx-Pb-WyU">
                                 <rect key="frame" x="24" y="501" width="366" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -52,13 +52,13 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pDZ-VL-3GY">
                                 <rect key="frame" x="22" y="407" width="370" height="31"/>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dayanıklılık" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oas-bl-EjN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dayanıklılık" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oas-bl-EjN">
                                 <rect key="frame" x="24" y="362" width="366" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="WhartonX" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vh1-sX-faW">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="WhartonX" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vh1-sX-faW">
                                 <rect key="frame" x="24" y="234" width="366" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="LbT-dw-qTr"/>
@@ -67,13 +67,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4v-vb-tXi">
-                                <rect key="frame" x="288.5" y="46.5" width="25.5" height="27.5"/>
+                                <rect key="frame" x="288.5" y="86.5" width="25.5" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dağıtılacak Puan:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3v-ah-WBZ">
-                                <rect key="frame" x="100" y="48.5" width="166" height="25.5"/>
+                                <rect key="frame" x="100" y="88.5" width="166" height="25.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -95,7 +95,7 @@
                             <constraint firstItem="T4P-4B-sBZ" firstAttribute="top" secondItem="mrn-Jh-NWi" secondAttribute="bottom" constant="64" id="E46-79-E3l"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JCx-Pb-WyU" secondAttribute="trailing" constant="24" id="EJH-SD-Hmv"/>
                             <constraint firstItem="mrn-Jh-NWi" firstAttribute="top" secondItem="JCx-Pb-WyU" secondAttribute="bottom" constant="24" id="Jhl-ec-msW"/>
-                            <constraint firstItem="Vh1-sX-faW" firstAttribute="top" secondItem="f3v-ah-WBZ" secondAttribute="bottom" constant="160" id="KnB-ek-SSC"/>
+                            <constraint firstItem="Vh1-sX-faW" firstAttribute="top" secondItem="f3v-ah-WBZ" secondAttribute="bottom" constant="120" id="KnB-ek-SSC"/>
                             <constraint firstItem="JCx-Pb-WyU" firstAttribute="top" secondItem="pDZ-VL-3GY" secondAttribute="bottom" constant="64" id="LiG-KV-bEn"/>
                             <constraint firstItem="f3v-ah-WBZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="Mfr-dj-uen"/>
                             <constraint firstItem="fNb-9N-c1F" firstAttribute="top" secondItem="j7M-1P-1Rg" secondAttribute="bottom" constant="64" id="PXg-tm-Qi6"/>
@@ -109,10 +109,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="j7M-1P-1Rg" secondAttribute="trailing" constant="24" id="juV-yV-0ZZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="T4P-4B-sBZ" secondAttribute="trailing" constant="24" id="pYc-lx-YpY"/>
                             <constraint firstItem="T4P-4B-sBZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="s7X-fr-Ivw"/>
-                            <constraint firstItem="Vh1-sX-faW" firstAttribute="top" secondItem="I4v-vb-tXi" secondAttribute="bottom" constant="160" id="yXs-GI-3uV"/>
+                            <constraint firstItem="Vh1-sX-faW" firstAttribute="top" secondItem="I4v-vb-tXi" secondAttribute="bottom" constant="120" id="yXs-GI-3uV"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="playButton" destination="fNb-9N-c1F" id="4vS-6F-WeD"/>
                         <segue destination="FCh-YN-exk" kind="presentation" identifier="toMainVC" modalPresentationStyle="fullScreen" id="95J-3H-h9A"/>
                     </connections>
                 </viewController>
