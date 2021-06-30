@@ -38,6 +38,7 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
         
         return cell
     }
+    
 
 
 }

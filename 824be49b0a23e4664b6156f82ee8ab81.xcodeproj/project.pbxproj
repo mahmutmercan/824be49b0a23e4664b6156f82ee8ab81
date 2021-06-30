@@ -13,6 +13,7 @@
 		85300E74268C58E600290DF4 /* SpaceStationCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85300E72268C58E600290DF4 /* SpaceStationCVC.xib */; };
 		85300E80268C597700290DF4 /* FavoritesCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85300E7E268C597700290DF4 /* FavoritesCVC.swift */; };
 		85300E81268C597700290DF4 /* FavoritesCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85300E7F268C597700290DF4 /* FavoritesCVC.xib */; };
+		85300E84268C740100290DF4 /* SpaceShipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85300E83268C740100290DF4 /* SpaceShipModel.swift */; };
 		85681B65268C42B300BDA601 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85681B64268C42B300BDA601 /* AppDelegate.swift */; };
 		85681B67268C42B300BDA601 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85681B66268C42B300BDA601 /* SceneDelegate.swift */; };
 		85681B69268C42B300BDA601 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85681B68268C42B300BDA601 /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 		85300E72268C58E600290DF4 /* SpaceStationCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpaceStationCVC.xib; sourceTree = "<group>"; };
 		85300E7E268C597700290DF4 /* FavoritesCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCVC.swift; sourceTree = "<group>"; };
 		85300E7F268C597700290DF4 /* FavoritesCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesCVC.xib; sourceTree = "<group>"; };
+		85300E83268C740100290DF4 /* SpaceShipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShipModel.swift; sourceTree = "<group>"; };
 		85681B61268C42B300BDA601 /* 824be49b0a23e4664b6156f82ee8ab81.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 824be49b0a23e4664b6156f82ee8ab81.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85681B64268C42B300BDA601 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85681B66268C42B300BDA601 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 		85300E47268C473900290DF4 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				85300E83268C740100290DF4 /* SpaceShipModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85300E84268C740100290DF4 /* SpaceShipModel.swift in Sources */,
 				85300E80268C597700290DF4 /* FavoritesCVC.swift in Sources */,
 				85300E51268C485700290DF4 /* FavoritesVC.swift in Sources */,
 				85681B69268C42B300BDA601 /* ViewController.swift in Sources */,
