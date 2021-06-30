@@ -172,6 +172,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favoriler" image="star.fill" catalog="system" id="1Kz-TX-h5R"/>
+                    <connections>
+                        <outlet property="favoritesListCV" destination="gP6-tW-FG4" id="aUJ-qN-k37"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHB-S2-iI7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -300,6 +303,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="İstasyon" id="Mg8-95-16G"/>
+                    <connections>
+                        <outlet property="stationListCV" destination="e8b-hH-L54" id="JTa-s6-Cwh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZeL-wK-N2w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

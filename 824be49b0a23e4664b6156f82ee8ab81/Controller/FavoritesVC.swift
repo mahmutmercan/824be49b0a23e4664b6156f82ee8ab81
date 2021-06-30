@@ -7,12 +7,16 @@
 
 import UIKit
 
-class FavoritesVC: UIViewController {
+class FavoritesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
 
+    @IBOutlet weak var favoritesListCV: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        favoritesListCV.register(FavoritesCVC.nib(), forCellWithReuseIdentifier: FavoritesCVC.identifier)
+
     }
     
 
@@ -25,5 +29,16 @@ class FavoritesVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoritesCVC.identifier, for: indexPath) as! FavoritesCVC
+        
+        return cell
+
+    }
+
 
 }
