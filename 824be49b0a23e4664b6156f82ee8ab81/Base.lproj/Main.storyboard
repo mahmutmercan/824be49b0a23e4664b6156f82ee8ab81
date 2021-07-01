@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="_24be49b0a23e4664b6156f82ee8ab81" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="_24be49b0a23e4664b6156f82ee8ab81" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,6 +34,9 @@
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="j7M-1P-1Rg">
                                 <rect key="frame" x="22" y="684" width="370" height="31"/>
+                                <connections>
+                                    <action selector="capacitySliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="r58-Hh-xNZ"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kapasite" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4P-4B-sBZ">
                                 <rect key="frame" x="24" y="639.5" width="366" height="20.5"/>
@@ -43,6 +46,9 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="mrn-Jh-NWi">
                                 <rect key="frame" x="22" y="545.5" width="370" height="31"/>
+                                <connections>
+                                    <action selector="speedSliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="xGa-8c-AcL"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hız" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCx-Pb-WyU">
                                 <rect key="frame" x="24" y="501" width="366" height="20.5"/>
@@ -52,6 +58,9 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="pDZ-VL-3GY">
                                 <rect key="frame" x="22" y="407" width="370" height="31"/>
+                                <connections>
+                                    <action selector="durabilitySliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="mRW-vo-Rax"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dayanıklılık" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oas-bl-EjN">
                                 <rect key="frame" x="24" y="362" width="366" height="21"/>
@@ -114,7 +123,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="capacitySlider" destination="j7M-1P-1Rg" id="7vR-Bd-Gwt"/>
+                        <outlet property="distributedPoint" destination="I4v-vb-tXi" id="7Cu-zR-rdH"/>
+                        <outlet property="distributedPointLabel" destination="f3v-ah-WBZ" id="P4w-1R-afV"/>
+                        <outlet property="durabilitySlider" destination="pDZ-VL-3GY" id="7oZ-Vi-oua"/>
                         <outlet property="playButton" destination="fNb-9N-c1F" id="4vS-6F-WeD"/>
+                        <outlet property="spaceShipNameField" destination="Vh1-sX-faW" id="7X0-JZ-OCN"/>
+                        <outlet property="speedSlider" destination="mrn-Jh-NWi" id="gLi-OU-oXI"/>
                         <segue destination="FCh-YN-exk" kind="presentation" identifier="toMainVC" modalPresentationStyle="fullScreen" id="95J-3H-h9A"/>
                     </connections>
                 </viewController>
@@ -125,7 +140,7 @@
         <!--Favoriler-->
         <scene sceneID="P5v-6h-NMh">
             <objects>
-                <viewController id="X7z-uy-9sw" customClass="FavoritesVC" customModule="_24be49b0a23e4664b6156f82ee8ab81" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoritesVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="X7z-uy-9sw" customClass="FavoritesVC" customModule="_24be49b0a23e4664b6156f82ee8ab81" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CIR-vW-Coe">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -178,12 +193,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aHB-S2-iI7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1245" y="356"/>
+            <point key="canvasLocation" x="1245" y="461"/>
         </scene>
         <!--İstasyon-->
         <scene sceneID="916-yo-9xp">
             <objects>
-                <viewController id="dyM-An-Poq" customClass="MainVC" customModule="_24be49b0a23e4664b6156f82ee8ab81" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dyM-An-Poq" customClass="MainVC" customModule="_24be49b0a23e4664b6156f82ee8ab81" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kgg-ew-ucK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

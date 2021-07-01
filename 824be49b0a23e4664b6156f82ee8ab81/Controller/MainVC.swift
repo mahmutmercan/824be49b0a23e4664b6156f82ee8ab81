@@ -8,16 +8,23 @@
 import UIKit
 
 class MainVC: UIViewController {
+    
+    var durabilityCurrentValue: Int = 0
+    var capacityCurrentValue: Int = 0
+    var speedCurrentValue: Int = 0
 
     @IBOutlet weak var stationListCV: UICollectionView!
     
-    var models = [SpaceStationModelElement]()
+    var stationResponse = [SpaceStationModelElement]()
 
     var layout =  UICollectionViewFlowLayout()
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCollectionView()
         setupJSON()
+        setupCollectionView()
+        print(durabilityCurrentValue,
+              capacityCurrentValue,
+              speedCurrentValue)
         // Do any additional setup after loading the view.
     }
     
@@ -32,10 +39,14 @@ class MainVC: UIViewController {
                     
             do {
                let stations = try JSONDecoder().decode([SpaceStationModelElement].self, from: data)
-                self.models.append(contentsOf: stations)
+                self.stationResponse.append(contentsOf: stations)
             } catch let jsonErr {
                 print("Error serializing json:", jsonErr)
             }
+            DispatchQueue.main.async {
+                self.stationListCV.reloadData()
+            }
+            print(stationResponse)
         }.resume()
     }
 }
@@ -43,7 +54,7 @@ class MainVC: UIViewController {
 
 extension MainVC {
     private func setupCollectionView() {
-        
+
         stationListCV.backgroundColor = .clear
         stationListCV.delegate = self
         stationListCV.dataSource = self
@@ -74,7 +85,7 @@ extension MainVC {
 
 extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return stationResponse.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
