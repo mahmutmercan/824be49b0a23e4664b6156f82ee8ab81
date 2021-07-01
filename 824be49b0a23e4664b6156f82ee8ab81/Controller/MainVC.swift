@@ -10,34 +10,39 @@ import UIKit
 class MainVC: UIViewController {
 
     @IBOutlet weak var stationListCV: UICollectionView!
+    
+    var models = [SpaceStationModelElement]()
+
     var layout =  UICollectionViewFlowLayout()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        
-        
+        setupJSON()
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setupJSON() {
+        let jsonUrlString = "https://run.mocky.io/v3/e7211664-cbb6-4357-9c9d-f12bf8bab2e2"
+        guard let url = URL(string: jsonUrlString) else
+        { return }
+        
+        URLSession.shared.dataTask(with: url) { [self] (data, response, err) in
+            
+            guard let data = data else { return }
+                    
+            do {
+               let stations = try JSONDecoder().decode([SpaceStationModelElement].self, from: data)
+                self.models.append(contentsOf: stations)
+            } catch let jsonErr {
+                print("Error serializing json:", jsonErr)
+            }
+        }.resume()
     }
-    */
-    
-
-
 }
 
 
 extension MainVC {
     private func setupCollectionView() {
-        
         
         stationListCV.backgroundColor = .clear
         stationListCV.delegate = self
