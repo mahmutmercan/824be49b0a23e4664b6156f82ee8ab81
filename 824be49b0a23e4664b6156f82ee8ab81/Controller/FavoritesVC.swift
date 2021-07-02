@@ -7,40 +7,91 @@
 
 import UIKit
 
-class FavoritesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class FavoritesVC: UIViewController {
     
-
+    
+    
     @IBOutlet weak var favoritesListCV: UICollectionView!
+    var layout =  UICollectionViewFlowLayout()
+    
+    var favoritePlanets: [SpaceStationModelElement] = []
+    
+    var durabilityCurrentValue: Int = 0
+    var capacityCurrentValue: Int = 0
+    var speedCurrentValue: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupCollectionView()
+        
+    }
+    
+    @IBAction func showPlanetVC(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PlanetVC") as! PlanetVC
+        vc.modalPresentationStyle = .fullScreen
+        vc.favoritePlanets = self.favoritePlanets
+        vc.durabilityCurrentValue = self.durabilityCurrentValue
+        vc.capacityCurrentValue = self.capacityCurrentValue
+        vc.speedCurrentValue = self.speedCurrentValue
+        self.present(vc, animated: true)
+    }
+    
+}
 
-        // Do any additional setup after loading the view.
+extension FavoritesVC {
+    private func setupCollectionView() {
+        favoritesListCV.backgroundColor = .clear
         favoritesListCV.delegate = self
         favoritesListCV.dataSource = self
+        favoritesListCV.isPagingEnabled = true
+        favoritesListCV.showsHorizontalScrollIndicator = false
+        favoritesListCV.setCollectionViewLayout(layout, animated: true)
         favoritesListCV.register(FavoritesCVC.nib(), forCellWithReuseIdentifier: FavoritesCVC.identifier)
-
+        setupCollectionViewItemSize()
+    }
+    private func setupCollectionViewItemSize() {
+        let screenSize = UIScreen.main.bounds.width
+        let itemW: CGFloat = screenSize - 64
+        let itemH: CGFloat = (itemW / 2) - 80
+        
+        layout.scrollDirection = UICollectionView.ScrollDirection.vertical
+        layout.itemSize = CGSize(width: itemW, height: itemH)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func remove(index: Int) {
+        favoritePlanets.remove(at: index)
+        let indexPath = IndexPath(row: index, section: 0)
+        favoritesListCV.performBatchUpdates({
+            self.favoritesListCV.deleteItems(at: [indexPath])
+        }, completion: {
+            (finished: Bool) in
+            self.favoritesListCV.reloadItems(at: self.favoritesListCV.indexPathsForVisibleItems)
+        })
     }
-    */
+    
+}
+
+
+extension FavoritesVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40
+        return favoritePlanets.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoritesCVC.identifier, for: indexPath) as! FavoritesCVC
         cell.backgroundColor = .red
+        cell.layer.borderWidth = 2
+        cell.layer.borderColor = UIColor.black.cgColor
+        cell.favAction  = { (cell) in
+            let id = indexPath.row
+            print(self.favoritePlanets[id])
+            self.remove(index: id)
+            
+        }
+        
         return cell
-
     }
-
-
 }

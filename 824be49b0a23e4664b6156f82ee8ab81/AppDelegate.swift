@@ -5,7 +5,6 @@
 //  Created by Mahmut MERCAN on 30.06.2021.
 //
 
-
 import UIKit
 
 @UIApplicationMain

@@ -35,7 +35,10 @@
                             <constraint firstAttribute="width" constant="40" id="Bqi-kS-NJa"/>
                             <constraint firstAttribute="height" constant="40" id="HPx-kP-Hr9"/>
                         </constraints>
-                        <state key="normal" image="star.fill" catalog="system"/>
+                        <state key="normal" image="star" catalog="system"/>
+                        <connections>
+                            <action selector="followButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="I4R-F0-Slb"/>
+                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YZCRFJ - 246" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3D-WG-6C7">
                         <rect key="frame" x="24" y="107.5" width="192" height="25.5"/>
@@ -50,6 +53,9 @@
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <state key="normal" title="Travel"/>
+                        <connections>
+                            <action selector="travelButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="wgF-2b-x8E"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
@@ -70,10 +76,17 @@
                 <constraint firstItem="iL0-m8-lNV" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="r5G-Ki-vJp"/>
             </constraints>
             <size key="customSize" width="250" height="211"/>
+            <connections>
+                <outlet property="distanceFromThePlanetLabel" destination="meB-cI-I3U" id="g4r-bn-9gB"/>
+                <outlet property="favoriteButton" destination="Nqb-nd-TJY" id="sG7-rS-YUC"/>
+                <outlet property="planetLabel" destination="t3D-WG-6C7" id="gEJ-8l-B7s"/>
+                <outlet property="stockNeedLabel" destination="iL0-m8-lNV" id="oHF-bo-jIu"/>
+                <outlet property="travelButton" destination="tEV-2y-8K2" id="Bkk-yU-SQe"/>
+            </connections>
             <point key="canvasLocation" x="144.92753623188406" y="153.68303571428569"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="star" catalog="system" width="128" height="116"/>
     </resources>
 </document>

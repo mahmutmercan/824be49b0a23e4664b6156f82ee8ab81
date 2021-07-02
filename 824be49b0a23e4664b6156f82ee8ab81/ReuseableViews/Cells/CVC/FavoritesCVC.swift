@@ -10,6 +10,7 @@ import UIKit
 class FavoritesCVC: UICollectionViewCell {
 
     static let identifier: String = "FavoritesCVC"
+    var favAction: ((UICollectionViewCell) -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,5 +20,9 @@ class FavoritesCVC: UICollectionViewCell {
     static func nib()-> UINib {
         return UINib(nibName: identifier, bundle: nil)
     }
-
+    
+    @IBAction func followButtonTapped(_ sender: Any) {
+        favAction?(self)
+        
+    }
 }

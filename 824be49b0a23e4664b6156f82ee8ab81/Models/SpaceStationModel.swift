@@ -10,8 +10,8 @@ import Foundation
 // MARK: - SpaceStationModelElement
 struct SpaceStationModelElement: Codable {
     let name: String
-    let coordinateX: Int
-    let coordinateY: Int
+    let coordinateX: Double
+    let coordinateY: Double
     let capacity: Int
     let stock: Int
     let need: Int

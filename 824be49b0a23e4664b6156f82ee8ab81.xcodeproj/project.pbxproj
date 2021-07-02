@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		85300E4E268C482600290DF4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85300E4D268C482600290DF4 /* MainVC.swift */; };
 		85300E51268C485700290DF4 /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85300E50268C485700290DF4 /* FavoritesVC.swift */; };
 		85300E73268C58E600290DF4 /* SpaceStationCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85300E71268C58E600290DF4 /* SpaceStationCVC.swift */; };
 		85300E74268C58E600290DF4 /* SpaceStationCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85300E72268C58E600290DF4 /* SpaceStationCVC.xib */; };
@@ -15,15 +14,18 @@
 		85300E81268C597700290DF4 /* FavoritesCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85300E7F268C597700290DF4 /* FavoritesCVC.xib */; };
 		85300E84268C740100290DF4 /* SpaceShipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85300E83268C740100290DF4 /* SpaceShipModel.swift */; };
 		85300E87268C74C200290DF4 /* SpaceStationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85300E86268C74C200290DF4 /* SpaceStationModel.swift */; };
+		853CFC56268EF9EA00F4A5B7 /* PlanetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853CFC55268EF9EA00F4A5B7 /* PlanetVC.swift */; };
+		853CFC5A268F0E4A00F4A5B7 /* SpaceShipSpecs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853CFC59268F0E4A00F4A5B7 /* SpaceShipSpecs.swift */; };
 		85681B65268C42B300BDA601 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85681B64268C42B300BDA601 /* AppDelegate.swift */; };
 		85681B69268C42B300BDA601 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85681B68268C42B300BDA601 /* ViewController.swift */; };
 		85681B6C268C42B300BDA601 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85681B6A268C42B300BDA601 /* Main.storyboard */; };
 		85681B6E268C42B300BDA601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85681B6D268C42B300BDA601 /* Assets.xcassets */; };
 		85681B71268C42B300BDA601 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85681B6F268C42B300BDA601 /* LaunchScreen.storyboard */; };
+		85FB6366268DC675009F235E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6365268DC675009F235E /* Utils.swift */; };
+		85FB636A268DC87B009F235E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6369268DC87B009F235E /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		85300E4D268C482600290DF4 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		85300E50268C485700290DF4 /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
 		85300E71268C58E600290DF4 /* SpaceStationCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceStationCVC.swift; sourceTree = "<group>"; };
 		85300E72268C58E600290DF4 /* SpaceStationCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpaceStationCVC.xib; sourceTree = "<group>"; };
@@ -31,6 +33,8 @@
 		85300E7F268C597700290DF4 /* FavoritesCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FavoritesCVC.xib; sourceTree = "<group>"; };
 		85300E83268C740100290DF4 /* SpaceShipModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShipModel.swift; sourceTree = "<group>"; };
 		85300E86268C74C200290DF4 /* SpaceStationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceStationModel.swift; sourceTree = "<group>"; };
+		853CFC55268EF9EA00F4A5B7 /* PlanetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetVC.swift; sourceTree = "<group>"; };
+		853CFC59268F0E4A00F4A5B7 /* SpaceShipSpecs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceShipSpecs.swift; sourceTree = "<group>"; };
 		85681B61268C42B300BDA601 /* 824be49b0a23e4664b6156f82ee8ab81.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 824be49b0a23e4664b6156f82ee8ab81.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85681B64268C42B300BDA601 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85681B68268C42B300BDA601 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +42,8 @@
 		85681B6D268C42B300BDA601 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85681B70268C42B300BDA601 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85681B72268C42B300BDA601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85FB6365268DC675009F235E /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		85FB6369268DC87B009F235E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,8 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				85681B68268C42B300BDA601 /* ViewController.swift */,
-				85300E4D268C482600290DF4 /* MainVC.swift */,
 				85300E50268C485700290DF4 /* FavoritesVC.swift */,
+				853CFC55268EF9EA00F4A5B7 /* PlanetVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -66,6 +72,7 @@
 			children = (
 				85300E83268C740100290DF4 /* SpaceShipModel.swift */,
 				85300E86268C74C200290DF4 /* SpaceStationModel.swift */,
+				853CFC59268F0E4A00F4A5B7 /* SpaceShipSpecs.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -119,11 +126,13 @@
 				85300E46268C473300290DF4 /* Controller */,
 				85300E47268C473900290DF4 /* Models */,
 				85300E48268C474C00290DF4 /* ReuseableViews */,
+				85FB6365268DC675009F235E /* Utils.swift */,
 				85681B64268C42B300BDA601 /* AppDelegate.swift */,
 				85681B6A268C42B300BDA601 /* Main.storyboard */,
 				85681B6D268C42B300BDA601 /* Assets.xcassets */,
 				85681B6F268C42B300BDA601 /* LaunchScreen.storyboard */,
 				85681B72268C42B300BDA601 /* Info.plist */,
+				85FB6369268DC87B009F235E /* Extensions.swift */,
 			);
 			path = 824be49b0a23e4664b6156f82ee8ab81;
 			sourceTree = "<group>";
@@ -201,10 +210,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				85300E84268C740100290DF4 /* SpaceShipModel.swift in Sources */,
+				853CFC5A268F0E4A00F4A5B7 /* SpaceShipSpecs.swift in Sources */,
 				85300E80268C597700290DF4 /* FavoritesCVC.swift in Sources */,
+				85FB6366268DC675009F235E /* Utils.swift in Sources */,
 				85300E51268C485700290DF4 /* FavoritesVC.swift in Sources */,
 				85681B69268C42B300BDA601 /* ViewController.swift in Sources */,
-				85300E4E268C482600290DF4 /* MainVC.swift in Sources */,
+				85FB636A268DC87B009F235E /* Extensions.swift in Sources */,
+				853CFC56268EF9EA00F4A5B7 /* PlanetVC.swift in Sources */,
 				85681B65268C42B300BDA601 /* AppDelegate.swift in Sources */,
 				85300E87268C74C200290DF4 /* SpaceStationModel.swift in Sources */,
 				85300E73268C58E600290DF4 /* SpaceStationCVC.swift in Sources */,

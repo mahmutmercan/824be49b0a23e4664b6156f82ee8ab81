@@ -17,21 +17,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var speedSlider: UISlider!
     @IBOutlet weak var playButton: UIButton!
     
-    
+    var deneme: Int = 0
     var totalPoint: Int = 0
     var durabilityCurrentValue: Int = 1
     var capacityCurrentValue: Int = 1
     var speedCurrentValue: Int = 1
-    
-    
+    let maxSum: Float = 15
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSliders()
-        calculateTotalPoints()
         // Do any additional setup after loading the view.
     }
-    
-
     
     func setupSliders(){
         let sliders = [durabilitySlider, capacitySlider, speedSlider]
@@ -40,50 +37,43 @@ class ViewController: UIViewController {
             i?.minimumValue = 1.0
         }
     }
-    
-    func calculateTotalPoints(){
-        totalPoint = durabilityCurrentValue + capacityCurrentValue + speedCurrentValue
-        if totalPoint  <= 15 {
-            let value = String(15 - totalPoint)
-            distributedPoint.text = value
-        } else {
-            print(String(totalPoint) + String("is more then 15"))
-        }
-    }
 
-    @IBAction func playButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "toMainVC", sender: sender)
-        
-        
-    }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toMainVC" {
-            if let destinationVC = segue.destination as? MainVC {
-                destinationVC.durabilityCurrentValue = self.durabilityCurrentValue
-                destinationVC.capacityCurrentValue = self.capacityCurrentValue
-                destinationVC.speedCurrentValue = self.speedCurrentValue
-            }
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        let sum = durabilitySlider.value + capacitySlider.value + speedSlider.value // better: use outlet collection
+        distributedPoint.text = String(Int(round(maxSum - sum)))
+        if (sum > maxSum) {
+            let overflow = sum - maxSum
+            sender.value = sender.value - overflow
+            distributedPoint.text = "0"
         }
     }
+    
+    @IBAction func playButtonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PlanetVC") as! PlanetVC
+        vc.modalPresentationStyle = .fullScreen
+        
+        vc.durabilityCurrentValue = self.durabilityCurrentValue
+        vc.capacityCurrentValue = self.capacityCurrentValue
+        vc.speedCurrentValue = self.speedCurrentValue
+        self.present(vc, animated: true)
+    }
+    
     
     @IBAction func durabilitySliderValueChanged(_ sender: UISlider) {
         durabilityCurrentValue = Int(round(sender.value))
-        print(sender.value)
-        print(durabilityCurrentValue)
-        calculateTotalPoints()
     }
+    
     @IBAction func speedSliderValueChanged(_ sender: UISlider) {
         speedCurrentValue = Int(round(sender.value))
-        print(sender.value)
-        print(speedCurrentValue)
-        calculateTotalPoints()
     }
+    
     @IBAction func capacitySliderValueChanged(_ sender: UISlider) {
         capacityCurrentValue = Int(round(sender.value))
-        print(sender.value)
-        print(capacityCurrentValue)
-        calculateTotalPoints()
+        
     }
+    
 }
+
 
