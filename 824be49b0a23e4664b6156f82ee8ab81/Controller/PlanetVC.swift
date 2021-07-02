@@ -33,6 +33,8 @@ class PlanetVC: UIViewController {
     var favoritePlanets: [SpaceStationModelElement] = []
     var selectedPlanets: [Int] = []
     
+    var spaceShipName: String?
+    
     var distance: Int = 0
     var distanceResult: Int = 0
     
@@ -43,6 +45,7 @@ class PlanetVC: UIViewController {
     var layout =  UICollectionViewFlowLayout()
     override func viewDidLoad() {
         super.viewDidLoad()
+        spaceShipNameLabel.text = spaceShipName
         durabilityCurrentValue = SpaceShipSpecs.durabilityCurrentValue
         capacityCurrentValue = SpaceShipSpecs.capacityCurrentValue
         speedCurrentValue = SpaceShipSpecs.speedCurrentValue
@@ -51,7 +54,6 @@ class PlanetVC: UIViewController {
         currentPlanet = world
         setupCollectionView()
         setInterface()
-        
         // Do any additional setup after loading the view.
     }
     
@@ -60,11 +62,11 @@ class PlanetVC: UIViewController {
         EUS = speedCurrentValue * 20
         DS = durabilityCurrentValue * 10000
     }
+    
     func setInterface() {
         ugsLabel.text = "UGS: \(UGS)"
         eusLabel.text = "EUS: \(EUS)"
         dsLabel.text = "DS: \(DS)"
-        stationListCV.reloadData()
     }
     
     func setupJSON() {
@@ -99,8 +101,6 @@ class PlanetVC: UIViewController {
         
         self.present(vc, animated: true)
     }
-    
-    
 }
 
 
@@ -161,16 +161,16 @@ extension PlanetVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         } else {
             print("Doesn’t found a planet")
         }
-        cell.cellConfigure(capacity: String(stationResponse[indexPath.row].capacity), need: String(stationResponse[indexPath.row].need), distance: String(distanceResult), planetName: stationResponse[indexPath.row].name)
         
+        cell.cellConfigure(capacity: String(stationResponse[indexPath.row].capacity),
+                           need: String(stationResponse[indexPath.row].need),
+                           distance: String(distanceResult),
+                           planetName: stationResponse[indexPath.row].name)
         cell.favAction = { (cell) in
             let id = indexPath.row
             print(self.stationResponse[id])
             self.favoritePlanets.append(self.stationResponse[id])
-            
-                        
         }
-        
         cell.travelAction = { [self] (cell) in
             print("travel tapped")
             self.selectedPlanets.append(indexPath.row)
@@ -178,14 +178,16 @@ extension PlanetVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             currentPlanetNameLabel.text = currentPlanet?.name
             EUS = EUS - distanceResult
             UGS = UGS - stationResponse[indexPath.row].need
+            ugsLabel.text = "UGS: \(UGS)"
+            eusLabel.text = "EUS: \(EUS)"
+            dsLabel.text = "DS: \(DS)"
             self.stationListCV.reloadData()
             print("EUS: \(EUS) VE UGS: \(UGS)")
             //self.remove(index: indexPath.row)
-            
         }
         return cell
     }
-    
+        
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == self.stationListCV {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SpaceStationCVC.identifier, for: indexPath) as! SpaceStationCVC
@@ -210,12 +212,13 @@ extension PlanetVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             self.stationListCV.reloadItems(at: self.stationListCV.indexPathsForVisibleItems)
         })
     }
-    
 }
 
 extension PlanetVC: UISearchBarDelegate {
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
     }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     }
 }

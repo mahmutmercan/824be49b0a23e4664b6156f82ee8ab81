@@ -14,5 +14,4 @@ extension Int {
         let result = (calculateX + calculateY).squareRoot()
         return Int(result)
     }
-
 }

@@ -9,11 +9,9 @@ import UIKit
 
 class FavoritesVC: UIViewController {
     
-    
-    
     @IBOutlet weak var favoritesListCV: UICollectionView!
-    var layout =  UICollectionViewFlowLayout()
     
+    var layout =  UICollectionViewFlowLayout()
     var favoritePlanets: [SpaceStationModelElement] = []
     
     var durabilityCurrentValue: Int = 0
@@ -23,7 +21,6 @@ class FavoritesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
-        
     }
     
     @IBAction func showPlanetVC(_ sender: Any) {
@@ -33,10 +30,10 @@ class FavoritesVC: UIViewController {
         vc.favoritePlanets = self.favoritePlanets        
         self.present(vc, animated: true)
     }
-    
 }
 
 extension FavoritesVC {
+    
     private func setupCollectionView() {
         favoritesListCV.backgroundColor = .clear
         favoritesListCV.delegate = self
@@ -67,7 +64,6 @@ extension FavoritesVC {
             self.favoritesListCV.reloadItems(at: self.favoritesListCV.indexPathsForVisibleItems)
         })
     }
-    
 }
 
 
@@ -79,16 +75,13 @@ extension FavoritesVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoritesCVC.identifier, for: indexPath) as! FavoritesCVC
-        cell.backgroundColor = .red
         cell.layer.borderWidth = 2
         cell.layer.borderColor = UIColor.black.cgColor
         cell.favAction  = { (cell) in
             let id = indexPath.row
             print(self.favoritePlanets[id])
             self.remove(index: id)
-            
         }
-        
         return cell
     }
 }

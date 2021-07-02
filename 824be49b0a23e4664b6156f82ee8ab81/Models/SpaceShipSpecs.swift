@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 enum SpaceShipSpecs {
     static var durabilityCurrentValue: Int = 0
     static var capacityCurrentValue: Int = 0

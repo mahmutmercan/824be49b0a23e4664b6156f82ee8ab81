@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     var capacityCurrentValue: Int = 1
     var speedCurrentValue: Int = 1
     let maxSum: Float = 15
+    
+    var spaceShipName: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,11 +58,8 @@ class ViewController: UIViewController {
         SpaceShipSpecs.durabilityCurrentValue = self.durabilityCurrentValue
         SpaceShipSpecs.capacityCurrentValue = self.capacityCurrentValue
         SpaceShipSpecs.speedCurrentValue = self.speedCurrentValue
-        print(SpaceShipSpecs.capacityCurrentValue)
-        
-//        vc.durabilityCurrentValue = self.durabilityCurrentValue
-//        vc.capacityCurrentValue = self.capacityCurrentValue
-//        vc.speedCurrentValue = self.speedCurrentValue
+        spaceShipName = spaceShipNameField.text
+        vc.spaceShipName = self.spaceShipName
         self.present(vc, animated: true)
     }
     
@@ -75,9 +74,7 @@ class ViewController: UIViewController {
     
     @IBAction func capacitySliderValueChanged(_ sender: UISlider) {
         capacityCurrentValue = Int(round(sender.value))
-        
     }
-    
 }
 
 

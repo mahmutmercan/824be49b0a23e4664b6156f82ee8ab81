@@ -24,7 +24,6 @@ class SpaceStationCVC: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .cyan
         setupCell()
         // Initialization code
     }
@@ -42,15 +41,6 @@ class SpaceStationCVC: UICollectionViewCell {
 
     @IBAction func followButtonTapped(_ sender: Any) {
         favAction?(self)
-        if #available(iOS 13.0, *) {
-            if favoriteButton.imageView?.image == UIImage(systemName: "Star") {
-                favoriteButton.imageView?.image = UIImage(systemName: "Star.fill")
-            } else {
-                favoriteButton.imageView?.image = UIImage(systemName: "Star")
-            }
-        } else {
-            // Fallback on earlier versions
-        }
     }
     
     @IBAction func travelButtonTapped(_ sender: Any) {

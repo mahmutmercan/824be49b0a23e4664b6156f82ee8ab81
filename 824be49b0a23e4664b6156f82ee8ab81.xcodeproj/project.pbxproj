@@ -22,7 +22,6 @@
 		85681B6E268C42B300BDA601 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85681B6D268C42B300BDA601 /* Assets.xcassets */; };
 		85681B71268C42B300BDA601 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85681B6F268C42B300BDA601 /* LaunchScreen.storyboard */; };
 		85FB6366268DC675009F235E /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6365268DC675009F235E /* Utils.swift */; };
-		85FB636A268DC87B009F235E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB6369268DC87B009F235E /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +42,6 @@
 		85681B70268C42B300BDA601 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85681B72268C42B300BDA601 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85FB6365268DC675009F235E /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
-		85FB6369268DC87B009F235E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +59,8 @@
 			isa = PBXGroup;
 			children = (
 				85681B68268C42B300BDA601 /* ViewController.swift */,
-				85300E50268C485700290DF4 /* FavoritesVC.swift */,
 				853CFC55268EF9EA00F4A5B7 /* PlanetVC.swift */,
+				85300E50268C485700290DF4 /* FavoritesVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -132,7 +130,6 @@
 				85681B6D268C42B300BDA601 /* Assets.xcassets */,
 				85681B6F268C42B300BDA601 /* LaunchScreen.storyboard */,
 				85681B72268C42B300BDA601 /* Info.plist */,
-				85FB6369268DC87B009F235E /* Extensions.swift */,
 			);
 			path = 824be49b0a23e4664b6156f82ee8ab81;
 			sourceTree = "<group>";
@@ -215,7 +212,6 @@
 				85FB6366268DC675009F235E /* Utils.swift in Sources */,
 				85300E51268C485700290DF4 /* FavoritesVC.swift in Sources */,
 				85681B69268C42B300BDA601 /* ViewController.swift in Sources */,
-				85FB636A268DC87B009F235E /* Extensions.swift in Sources */,
 				853CFC56268EF9EA00F4A5B7 /* PlanetVC.swift in Sources */,
 				85681B65268C42B300BDA601 /* AppDelegate.swift in Sources */,
 				85300E87268C74C200290DF4 /* SpaceStationModel.swift in Sources */,
