@@ -53,10 +53,14 @@ class ViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PlanetVC") as! PlanetVC
         vc.modalPresentationStyle = .fullScreen
+        SpaceShipSpecs.durabilityCurrentValue = self.durabilityCurrentValue
+        SpaceShipSpecs.capacityCurrentValue = self.capacityCurrentValue
+        SpaceShipSpecs.speedCurrentValue = self.speedCurrentValue
+        print(SpaceShipSpecs.capacityCurrentValue)
         
-        vc.durabilityCurrentValue = self.durabilityCurrentValue
-        vc.capacityCurrentValue = self.capacityCurrentValue
-        vc.speedCurrentValue = self.speedCurrentValue
+//        vc.durabilityCurrentValue = self.durabilityCurrentValue
+//        vc.capacityCurrentValue = self.capacityCurrentValue
+//        vc.speedCurrentValue = self.speedCurrentValue
         self.present(vc, animated: true)
     }
     

@@ -9,7 +9,7 @@ import Foundation
 
 
 enum SpaceShipSpecs {
-    static var durabilityCurrentValue: Int = 145
-    static var capacityCurrentValue: Int = 133
-    static var speedCurrentValue: Int = 1456
+    static var durabilityCurrentValue: Int = 0
+    static var capacityCurrentValue: Int = 0
+    static var speedCurrentValue: Int = 0
 }

@@ -30,10 +30,7 @@ class FavoritesVC: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "PlanetVC") as! PlanetVC
         vc.modalPresentationStyle = .fullScreen
-        vc.favoritePlanets = self.favoritePlanets
-        vc.durabilityCurrentValue = self.durabilityCurrentValue
-        vc.capacityCurrentValue = self.capacityCurrentValue
-        vc.speedCurrentValue = self.speedCurrentValue
+        vc.favoritePlanets = self.favoritePlanets        
         self.present(vc, animated: true)
     }
     

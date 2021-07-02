@@ -43,6 +43,9 @@ class PlanetVC: UIViewController {
     var layout =  UICollectionViewFlowLayout()
     override func viewDidLoad() {
         super.viewDidLoad()
+        durabilityCurrentValue = SpaceShipSpecs.durabilityCurrentValue
+        capacityCurrentValue = SpaceShipSpecs.capacityCurrentValue
+        speedCurrentValue = SpaceShipSpecs.speedCurrentValue
         setupJSON()
         setupCalculate()
         currentPlanet = world
@@ -91,10 +94,7 @@ class PlanetVC: UIViewController {
     @IBAction func showFavoritesVC(_ sender: Any) {        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "FavoritesVC") as! FavoritesVC
-        vc.modalPresentationStyle = .fullScreen
-        vc.durabilityCurrentValue = self.durabilityCurrentValue
-        vc.capacityCurrentValue = self.capacityCurrentValue
-        vc.speedCurrentValue = self.speedCurrentValue
+        vc.modalPresentationStyle = .fullScreen        
         vc.favoritePlanets = self.favoritePlanets
         
         self.present(vc, animated: true)
@@ -174,14 +174,13 @@ extension PlanetVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         cell.travelAction = { [self] (cell) in
             print("travel tapped")
             self.selectedPlanets.append(indexPath.row)
-            print(self.selectedPlanets.count)
-            print(self.selectedPlanets)
             currentPlanet = stationResponse[indexPath.row]
             currentPlanetNameLabel.text = currentPlanet?.name
             EUS = EUS - distanceResult
             UGS = UGS - stationResponse[indexPath.row].need
             self.stationListCV.reloadData()
             print("EUS: \(EUS) VE UGS: \(UGS)")
+            //self.remove(index: indexPath.row)
             
         }
         return cell
@@ -200,6 +199,18 @@ extension PlanetVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             }
         }
     }
+    
+    func remove(index: Int) {
+        //stationResponse.remove(at: index)
+        let indexPath = IndexPath(row: index, section: 0)
+        stationListCV.performBatchUpdates({
+            self.stationListCV.deleteItems(at: [indexPath])
+        }, completion: {
+            (finished: Bool) in
+            self.stationListCV.reloadItems(at: self.stationListCV.indexPathsForVisibleItems)
+        })
+    }
+    
 }
 
 extension PlanetVC: UISearchBarDelegate {
