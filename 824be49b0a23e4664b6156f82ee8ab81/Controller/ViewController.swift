@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var speedSlider: UISlider!
     @IBOutlet weak var playButton: UIButton!
     
-    var deneme: Int = 0
     var totalPoint: Int = 0
     var durabilityCurrentValue: Int = 1
     var capacityCurrentValue: Int = 1
@@ -25,7 +24,7 @@ class ViewController: UIViewController {
     let maxSum: Float = 15
     
     var spaceShipName: String?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSliders()
@@ -39,7 +38,6 @@ class ViewController: UIViewController {
             i?.minimumValue = 1.0
         }
     }
-
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         let sum = durabilitySlider.value + capacitySlider.value + speedSlider.value // better: use outlet collection
@@ -52,17 +50,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func playButtonTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PlanetVC") as! PlanetVC
-        vc.modalPresentationStyle = .fullScreen
-        SpaceShipSpecs.durabilityCurrentValue = self.durabilityCurrentValue
-        SpaceShipSpecs.capacityCurrentValue = self.capacityCurrentValue
-        SpaceShipSpecs.speedCurrentValue = self.speedCurrentValue
-        spaceShipName = spaceShipNameField.text
-        vc.spaceShipName = self.spaceShipName
-        self.present(vc, animated: true)
+        performSegue(withIdentifier: "toTBC", sender: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let tbc = segue.destination as? BaseTabBarController {
+            spaceShipName = spaceShipNameField.text
+            tbc.capacityCurrentValue = self.capacityCurrentValue
+            tbc.speedCurrentValue = self.speedCurrentValue
+            tbc.durabilityCurrentValue = self.durabilityCurrentValue
+            tbc.spaceShipName = self.spaceShipName
+        }
+    }
     
     @IBAction func durabilitySliderValueChanged(_ sender: UISlider) {
         durabilityCurrentValue = Int(round(sender.value))

@@ -19,8 +19,8 @@ class SpaceStationCVC: UICollectionViewCell {
     
     var travelAction: ((UICollectionViewCell) -> Void)?
     var favAction: ((UICollectionViewCell) -> Void)?
-
-
+    
+    var stateFavorites = 1
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,7 +31,8 @@ class SpaceStationCVC: UICollectionViewCell {
         self.layer.borderWidth = 2
         self.layer.borderColor = UIColor.black.cgColor
         self.layer.cornerRadius = 12
-
+        travelButton.layer.borderWidth = 2
+        travelButton.layer.borderColor = UIColor.black.cgColor
     }
     func cellConfigure(capacity: String, need: String, distance: String, planetName: String) {
         stockNeedLabel.text = "\(capacity)/\(need)"
@@ -40,13 +41,26 @@ class SpaceStationCVC: UICollectionViewCell {
     }
 
     @IBAction func followButtonTapped(_ sender: Any) {
+        if stateFavorites == 1 {
+            stateFavorites = 2
+            if #available(iOS 13.0, *) {
+                favoriteButton.setImage(UIImage(systemName: "star.fill"), for: UIControl.State.normal)
+            } else {
+            }
+        } else {
+            stateFavorites = 1
+            if #available(iOS 13.0, *) {
+                favoriteButton.setImage(UIImage(systemName: "star"), for: UIControl.State.normal)
+            } else {
+                // Fallback on earlier versions
+            }
+        }
         favAction?(self)
     }
     
     @IBAction func travelButtonTapped(_ sender: Any) {
         travelAction?(self)
     }
-    
     
     static func nib()-> UINib {
         return UINib(nibName: identifier, bundle: nil)

@@ -13,6 +13,8 @@ class FavoritesVC: UIViewController {
     
     var layout =  UICollectionViewFlowLayout()
     var favoritePlanets: [SpaceStationModelElement] = []
+    var distanceResult: Int = 0
+
     
     var durabilityCurrentValue: Int = 0
     var capacityCurrentValue: Int = 0
@@ -20,16 +22,10 @@ class FavoritesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("abcdsdasd: \(favoritePlanets)")
         setupCollectionView()
     }
     
-    @IBAction func showPlanetVC(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "PlanetVC") as! PlanetVC
-        vc.modalPresentationStyle = .fullScreen
-        vc.favoritePlanets = self.favoritePlanets        
-        self.present(vc, animated: true)
-    }
 }
 
 extension FavoritesVC {
@@ -74,6 +70,7 @@ extension FavoritesVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoritesCVC.identifier, for: indexPath) as! FavoritesCVC
         cell.layer.borderWidth = 2
         cell.layer.borderColor = UIColor.black.cgColor
@@ -82,6 +79,7 @@ extension FavoritesVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
             print(self.favoritePlanets[id])
             self.remove(index: id)
         }
+        cell.cellConfigure(distance: String("\(distanceResult) EUS"), planetName: favoritePlanets[indexPath.row].name)
         return cell
     }
 }

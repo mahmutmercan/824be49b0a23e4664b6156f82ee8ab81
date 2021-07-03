@@ -17,24 +17,33 @@
                 <rect key="frame" x="0.0" y="0.0" width="340" height="100"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="YFCRX-256" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfJ-T1-2Ud">
-                        <rect key="frame" x="8" y="8" width="91" height="20.5"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YFCRX-256" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfJ-T1-2Ud">
+                        <rect key="frame" x="8" y="8" width="200" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="L1i-jd-HgJ"/>
+                            <constraint firstAttribute="width" constant="200" id="b9z-l4-KPQ"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="236EUS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3o-r9-gAL">
-                        <rect key="frame" x="8" y="44.5" width="63" height="20.5"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="236EUS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3o-r9-gAL">
+                        <rect key="frame" x="8" y="40" width="200" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="6TW-K2-JuB"/>
+                            <constraint firstAttribute="width" constant="200" id="gUv-Sl-Gpm"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5C-Tm-2PA">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5C-Tm-2PA">
                         <rect key="frame" x="292" y="8" width="40" height="40"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" image="star.fill" catalog="system"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="SKw-R0-QMQ"/>
+                            <constraint firstAttribute="height" constant="40" id="b9i-Nc-ItX"/>
+                        </constraints>
+                        <state key="normal" image="star" catalog="system"/>
                         <connections>
                             <action selector="followButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="XT8-DL-6cl"/>
                         </connections>
@@ -42,10 +51,22 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="H5C-Tm-2PA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="6XR-SH-jzl"/>
+                <constraint firstItem="y3o-r9-gAL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="CQQ-ay-s1f"/>
+                <constraint firstAttribute="trailing" secondItem="H5C-Tm-2PA" secondAttribute="trailing" constant="8" id="Pdh-DR-gjQ"/>
+                <constraint firstItem="hfJ-T1-2Ud" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="mBx-Vw-6e3"/>
+                <constraint firstItem="hfJ-T1-2Ud" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="sJw-WN-1Pl"/>
+                <constraint firstItem="y3o-r9-gAL" firstAttribute="top" secondItem="hfJ-T1-2Ud" secondAttribute="bottom" constant="8" id="xcN-XK-xf2"/>
+            </constraints>
+            <connections>
+                <outlet property="distanceFromThePlanetLabel" destination="y3o-r9-gAL" id="fSm-FH-yLb"/>
+                <outlet property="planetNameLabel" destination="hfJ-T1-2Ud" id="l6g-z2-9SH"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="99.776785714285708"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <image name="star" catalog="system" width="128" height="116"/>
     </resources>
 </document>

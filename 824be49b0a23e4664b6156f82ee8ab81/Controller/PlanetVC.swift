@@ -32,41 +32,58 @@ class PlanetVC: UIViewController {
     var currentPlanet: SpaceStationModelElement?
     var favoritePlanets: [SpaceStationModelElement] = []
     var selectedPlanets: [Int] = []
+    var stateFavorites = 1
+    
     
     var spaceShipName: String?
     
     var distance: Int = 0
     var distanceResult: Int = 0
-    
-    @IBOutlet weak var stationListCV: UICollectionView!
-    
     var stationResponse = [SpaceStationModelElement]()
     
+    
     var layout =  UICollectionViewFlowLayout()
+    @IBOutlet weak var stationListCV: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        spaceShipNameLabel.text = spaceShipName
-        durabilityCurrentValue = SpaceShipSpecs.durabilityCurrentValue
-        capacityCurrentValue = SpaceShipSpecs.capacityCurrentValue
-        speedCurrentValue = SpaceShipSpecs.speedCurrentValue
+        setTBC()
+        setInterface()
         setupJSON()
-        setupCalculate()
         currentPlanet = world
         setupCollectionView()
-        setInterface()
         // Do any additional setup after loading the view.
     }
-    
-    func setupCalculate() {
-        UGS = capacityCurrentValue * 10000
-        EUS = speedCurrentValue * 20
-        DS = durabilityCurrentValue * 10000
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        setupCalculate()
+    }
+    func setTBC() {
+        durabilityCurrentValue = (self.tabBarController as? BaseTabBarController)!.durabilityCurrentValue
+        capacityCurrentValue = (self.tabBarController as? BaseTabBarController)!.capacityCurrentValue
+        speedCurrentValue = (self.tabBarController as? BaseTabBarController)!.speedCurrentValue
+        spaceShipName = (self.tabBarController as? BaseTabBarController)!.spaceShipName
+        
     }
     
     func setInterface() {
+        //        self.tabBarController?.selectedViewController
+        spaceShipNameLabel.text = self.spaceShipName
+        setupCalculate()
         ugsLabel.text = "UGS: \(UGS)"
         eusLabel.text = "EUS: \(EUS)"
         dsLabel.text = "DS: \(DS)"
+        shipDamageCapacity.layer.borderWidth = 2
+        shipDamageCapacity.layer.borderColor = UIColor.black.cgColor
+        remainingEusTime.layer.borderWidth = 2
+        remainingEusTime.layer.borderColor = UIColor.black.cgColor
+        
+    }
+    
+    func setupCalculate() {
+        UGS = self.capacityCurrentValue * 10000
+        EUS = self.speedCurrentValue * 20
+        DS = self.durabilityCurrentValue * 10000
     }
     
     func setupJSON() {
@@ -91,15 +108,6 @@ class PlanetVC: UIViewController {
                 self.stationListCV.reloadData()
             }
         }.resume()
-    }
-    
-    @IBAction func showFavoritesVC(_ sender: Any) {        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "FavoritesVC") as! FavoritesVC
-        vc.modalPresentationStyle = .fullScreen        
-        vc.favoritePlanets = self.favoritePlanets
-        
-        self.present(vc, animated: true)
     }
 }
 
@@ -128,6 +136,13 @@ extension PlanetVC {
         layout.sectionInset = UIEdgeInsets(top: 0, left: minimumLineSpacingValue, bottom: 0, right: minimumLineSpacingValue)
         layout.minimumLineSpacing = minimumLineSpacingValue * 2
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? FavoritesVC{
+            print("fav: \(favoritePlanets)")
+            vc.favoritePlanets = self.favoritePlanets
+            vc.distanceResult = self.distanceResult
+        }
+    }
 }
 
 extension PlanetVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -145,13 +160,6 @@ extension PlanetVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
         }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SpaceStationCVC.identifier, for: indexPath) as! SpaceStationCVC
-        for i in selectedPlanets {
-            if indexPath.row == i {
-                cell.travelButton.isEnabled = false
-            } else {
-                cell.travelButton.isEnabled = true
-            }
-        }
         
         if let planet = currentPlanet {
             distanceResult = distanceCalculation(currentCoordinateX: planet.coordinateX,
@@ -166,11 +174,11 @@ extension PlanetVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
                            need: String(stationResponse[indexPath.row].need),
                            distance: String(distanceResult),
                            planetName: stationResponse[indexPath.row].name)
-        cell.favAction = { (cell) in
-            let id = indexPath.row
-            print(self.stationResponse[id])
-            self.favoritePlanets.append(self.stationResponse[id])
+        cell.favAction = { [self] (cell) in
+            self.favoritePlanets.append(self.stationResponse[indexPath.row])
+            self.stationListCV.reloadData()
         }
+        
         cell.travelAction = { [self] (cell) in
             print("travel tapped")
             self.selectedPlanets.append(indexPath.row)
@@ -183,34 +191,13 @@ extension PlanetVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
             dsLabel.text = "DS: \(DS)"
             self.stationListCV.reloadData()
             print("EUS: \(EUS) VE UGS: \(UGS)")
-            //self.remove(index: indexPath.row)
+        }
+        if selectedPlanets.contains(indexPath.row) {
+            cell.travelButton.isEnabled = false
+        } else {
+            cell.travelButton.isEnabled = true
         }
         return cell
-    }
-        
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == self.stationListCV {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SpaceStationCVC.identifier, for: indexPath) as! SpaceStationCVC
-            
-            for i in selectedPlanets {
-                if indexPath.row == i {
-                    cell.travelButton.isEnabled = false
-                } else {
-                    cell.travelButton.isEnabled = true
-                }
-            }
-        }
-    }
-    
-    func remove(index: Int) {
-        //stationResponse.remove(at: index)
-        let indexPath = IndexPath(row: index, section: 0)
-        stationListCV.performBatchUpdates({
-            self.stationListCV.deleteItems(at: [indexPath])
-        }, completion: {
-            (finished: Bool) in
-            self.stationListCV.reloadItems(at: self.stationListCV.indexPathsForVisibleItems)
-        })
     }
 }
 

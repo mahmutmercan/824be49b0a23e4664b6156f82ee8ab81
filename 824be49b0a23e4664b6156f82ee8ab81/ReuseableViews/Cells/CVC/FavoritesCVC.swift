@@ -12,9 +12,17 @@ class FavoritesCVC: UICollectionViewCell {
     static let identifier: String = "FavoritesCVC"
     var favAction: ((UICollectionViewCell) -> Void)?
 
+    @IBOutlet weak var planetNameLabel: UILabel!
+    @IBOutlet weak var distanceFromThePlanetLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func cellConfigure(distance: String, planetName: String) {
+        distanceFromThePlanetLabel.text = distance
+        planetNameLabel.text = planetName
+        
     }
     
     static func nib()-> UINib {
@@ -23,6 +31,5 @@ class FavoritesCVC: UICollectionViewCell {
     
     @IBAction func followButtonTapped(_ sender: Any) {
         favAction?(self)
-        
     }
 }

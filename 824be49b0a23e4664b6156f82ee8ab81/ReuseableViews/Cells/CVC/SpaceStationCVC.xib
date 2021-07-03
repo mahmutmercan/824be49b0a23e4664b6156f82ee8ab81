@@ -23,13 +23,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="242EUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meB-cI-I3U">
-                        <rect key="frame" x="8" y="37" width="62.5" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nqb-nd-TJY">
+                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nqb-nd-TJY">
                         <rect key="frame" x="192" y="8" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="Bqi-kS-NJa"/>
@@ -40,6 +34,12 @@
                             <action selector="followButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="I4R-F0-Slb"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="242EUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meB-cI-I3U">
+                        <rect key="frame" x="8" y="37" width="62.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YZCRFJ - 246" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t3D-WG-6C7">
                         <rect key="frame" x="24" y="107.5" width="192" height="25.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
@@ -83,7 +83,7 @@
                 <outlet property="stockNeedLabel" destination="iL0-m8-lNV" id="oHF-bo-jIu"/>
                 <outlet property="travelButton" destination="tEV-2y-8K2" id="Bkk-yU-SQe"/>
             </connections>
-            <point key="canvasLocation" x="144.92753623188406" y="153.68303571428569"/>
+            <point key="canvasLocation" x="144.92753623188406" y="153.34821428571428"/>
         </collectionViewCell>
     </objects>
     <resources>
