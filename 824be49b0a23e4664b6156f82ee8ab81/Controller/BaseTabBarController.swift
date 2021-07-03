@@ -17,7 +17,6 @@ class BaseTabBarController: UITabBarController {
     var favoritePlanets: [SpaceStationModelElement] = []
     var selectedPlanets: [Int] = []
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         print(durabilityCurrentValue, capacityCurrentValue, speedCurrentValue, spaceShipName)
@@ -32,7 +31,6 @@ class BaseTabBarController: UITabBarController {
         fvc.durabilityCurrentValue = self.durabilityCurrentValue
         fvc.spaceShipName = self.spaceShipName
         fvc.favoritePlanets = self.favoritePlanets
-        print(favoritePlanets)
       }
         if let svc = segue.destination as? FavoritesVC{
           svc.favoritePlanets = self.favoritePlanets
