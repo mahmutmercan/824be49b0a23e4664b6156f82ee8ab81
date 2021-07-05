@@ -52,6 +52,7 @@ class PlanetVC: UIViewController {
         setupJSON()
         currentPlanet = world
         setupCollectionView()
+
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -74,10 +75,32 @@ class PlanetVC: UIViewController {
         eusLabel.text = "EUS: \(EUS)"
         dsLabel.text = "DS: \(DS)"
         shipDamageCapacity.layer.borderWidth = 2
-        shipDamageCapacity.layer.borderColor = UIColor.black.cgColor
         remainingEusTime.layer.borderWidth = 2
-        remainingEusTime.layer.borderColor = UIColor.black.cgColor
-        
+        if #available(iOS 12.0, *) {
+            if traitCollection.userInterfaceStyle == .dark {
+                shipDamageCapacity.layer.borderColor = UIColor.white.cgColor
+                remainingEusTime.layer.borderColor = UIColor.white.cgColor
+            } else {
+                shipDamageCapacity.layer.borderColor = UIColor.black.cgColor
+                remainingEusTime.layer.borderColor = UIColor.black.cgColor
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+    }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if #available(iOS 12.0, *) {
+            if traitCollection.userInterfaceStyle == .dark {
+                shipDamageCapacity.layer.borderColor = UIColor.white.cgColor
+                remainingEusTime.layer.borderColor = UIColor.white.cgColor
+            } else {
+                shipDamageCapacity.layer.borderColor = UIColor.black.cgColor
+                remainingEusTime.layer.borderColor = UIColor.black.cgColor
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+
     }
     
     func setupCalculate() {
@@ -136,9 +159,9 @@ extension PlanetVC {
         layout.sectionInset = UIEdgeInsets(top: 0, left: minimumLineSpacingValue, bottom: 0, right: minimumLineSpacingValue)
         layout.minimumLineSpacing = minimumLineSpacingValue * 2
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? FavoritesVC{
-            print("fav: \(favoritePlanets)")
             vc.favoritePlanets = self.favoritePlanets
             vc.distanceResult = self.distanceResult
         }
@@ -174,8 +197,10 @@ extension PlanetVC: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
                            need: String(stationResponse[indexPath.row].need),
                            distance: String(distanceResult),
                            planetName: stationResponse[indexPath.row].name)
+        
         cell.favAction = { [self] (cell) in
             self.favoritePlanets.append(self.stationResponse[indexPath.row])
+            print("deneme1:\(favoritePlanets)")
             self.stationListCV.reloadData()
         }
         

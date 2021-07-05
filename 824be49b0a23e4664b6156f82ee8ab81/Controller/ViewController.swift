@@ -28,14 +28,34 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSliders()
+        if #available(iOS 12.0, *) {
+            if traitCollection.userInterfaceStyle == .dark {
+                playButton.tintColor = UIColor.white
+            } else {
+                playButton.tintColor = UIColor.black
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+
         // Do any additional setup after loading the view.
-    }
-    
+    }    
     func setupSliders(){
         let sliders = [durabilitySlider, capacitySlider, speedSlider]
         for i in sliders {
             i?.maximumValue = 13.0
             i?.minimumValue = 1.0
+        }
+    }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if #available(iOS 12.0, *) {
+            if traitCollection.userInterfaceStyle == .dark {
+                playButton.tintColor = UIColor.white
+            } else {
+                playButton.tintColor = UIColor.black
+            }
+        } else {
+            // Fallback on earlier versions
         }
     }
     
@@ -75,5 +95,3 @@ class ViewController: UIViewController {
         capacityCurrentValue = Int(round(sender.value))
     }
 }
-
-

@@ -65,8 +65,7 @@ extension FavoritesVC {
 extension FavoritesVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return favoritePlanets.count ?? 0
-        return 5
+        return favoritePlanets.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -74,12 +73,12 @@ extension FavoritesVC: UICollectionViewDelegate, UICollectionViewDataSource, UIC
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoritesCVC.identifier, for: indexPath) as! FavoritesCVC
         cell.layer.borderWidth = 2
         cell.layer.borderColor = UIColor.black.cgColor
-//        cell.favAction  = { (cell) in
-//            let id = indexPath.row
-//            print(self.favoritePlanets[id])
-//            self.remove(index: id)
-//        }
-//        cell.cellConfigure(distance: String("\(distanceResult) EUS"), planetName: favoritePlanets[indexPath.row].name)
+        cell.favAction  = { (cell) in
+            let id = indexPath.row
+            print(self.favoritePlanets[id])
+            self.remove(index: id)
+        }
+        cell.cellConfigure(distance: String("\(distanceResult) EUS"), planetName: favoritePlanets[indexPath.row].name)
         return cell
     }
 }

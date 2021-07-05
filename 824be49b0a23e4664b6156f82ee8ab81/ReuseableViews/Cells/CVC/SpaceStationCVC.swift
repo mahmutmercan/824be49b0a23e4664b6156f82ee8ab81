@@ -25,14 +25,37 @@ class SpaceStationCVC: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupCell()
+        if #available(iOS 12.0, *) {
+            if traitCollection.userInterfaceStyle == .dark {
+                travelButton.layer.borderColor = UIColor.white.cgColor
+                self.layer.borderColor = UIColor.white.cgColor
+            } else {
+                self.layer.borderColor = UIColor.black.cgColor
+                travelButton.layer.borderColor = UIColor.black.cgColor
+            }
+        } else {
+            // Fallback on earlier versions
+        }
+
         // Initialization code
     }
     func setupCell() {
         self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.black.cgColor
         self.layer.cornerRadius = 12
         travelButton.layer.borderWidth = 2
-        travelButton.layer.borderColor = UIColor.black.cgColor
+    }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        if #available(iOS 12.0, *) {
+            if traitCollection.userInterfaceStyle == .dark {
+                travelButton.layer.borderColor = UIColor.white.cgColor
+                self.layer.borderColor = UIColor.white.cgColor
+            } else {
+                self.layer.borderColor = UIColor.black.cgColor
+                travelButton.layer.borderColor = UIColor.black.cgColor
+            }
+        } else {
+            // Fallback on earlier versions
+        }
     }
     func cellConfigure(capacity: String, need: String, distance: String, planetName: String) {
         stockNeedLabel.text = "\(capacity)/\(need)"

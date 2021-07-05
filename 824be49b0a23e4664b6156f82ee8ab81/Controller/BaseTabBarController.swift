@@ -20,7 +20,6 @@ class BaseTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(durabilityCurrentValue, capacityCurrentValue, speedCurrentValue, spaceShipName)
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -32,13 +31,5 @@ class BaseTabBarController: UITabBarController {
         fvc.spaceShipName = self.spaceShipName
         fvc.favoritePlanets = self.favoritePlanets
       }
-        if let svc = segue.destination as? FavoritesVC{
-          svc.favoritePlanets = self.favoritePlanets
-        }
-
-        
     }
-
-    
-    
 }
